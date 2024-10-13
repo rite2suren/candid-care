@@ -10,11 +10,11 @@
         @(Html.GoogleMap()
               .Name("map")
               .Height(500)
-              .ApiKey("AIzaSyDox1GK-S-OLPmrw8-P04O1vRESHIWKVC0")
+              .ApiKey(Environment.GetEnvironmentVariable("google-maps-api-key"))
           )
     </div>
 </div>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>. key @Environment.GetEnvironmentVariable("google-maps-api-key")</p>
 </div>
 
 @section scripts
