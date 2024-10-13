@@ -1,11 +1,90 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "Jmelosegui.Mvc.Googlemap/1.0.13": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "lib/net6.0/Jmelosegui.Mvc.GoogleMap.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Jmelosegui.Mvc.GoogleMap.dll": {
+            "related": ".pdb"
+          }
+        },
+        "build": {
+          "build/Jmelosegui.Mvc.Googlemap.targets": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Jmelosegui.Mvc.Googlemap/1.0.13": {
+      "sha512": "pM+4b4AmlkqhplrkaA9UdX9JtSbzxmgCE34BspttY1LIXP028An3SAqsRRvjNnI2Fe3eToWjnHE+E3TO8synuA==",
+      "type": "package",
+      "path": "jmelosegui.mvc.googlemap/1.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Jmelosegui.Mvc.Googlemap.targets",
+        "content/js/jmelosegui.googlemap.js",
+        "content/js/markerclusterer.js",
+        "jmelosegui.mvc.googlemap.1.0.13.nupkg.sha512",
+        "jmelosegui.mvc.googlemap.nuspec",
+        "lib/net6.0/Jmelosegui.Mvc.GoogleMap.dll",
+        "lib/net6.0/Jmelosegui.Mvc.GoogleMap.pdb"
+      ]
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "Jmelosegui.Mvc.Googlemap >= 1.0.13"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\san_y\\.nuget\\packages\\": {}
@@ -13,11 +92,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\suren\\community-resources\\community-resources.csproj",
+      "projectUniqueName": "C:\\Projects\\suren\\community-resources\\community-resources.csproj",
       "projectName": "community-resources",
-      "projectPath": "C:\\projects\\suren\\community-resources\\community-resources.csproj",
+      "projectPath": "C:\\Projects\\suren\\community-resources\\community-resources.csproj",
       "packagesPath": "C:\\Users\\san_y\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\suren\\community-resources\\obj\\",
+      "outputPath": "C:\\Projects\\suren\\community-resources\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\san_y\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +125,12 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
+        "dependencies": {
+          "Jmelosegui.Mvc.Googlemap": {
+            "target": "Package",
+            "version": "[1.0.13, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

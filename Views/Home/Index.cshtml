@@ -1,8 +1,23 @@
-﻿@{
+﻿@using Jmelosegui.Mvc.GoogleMap
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <div class="row">
+    <div class="col-md-12">
+        @(Html.GoogleMap()
+              .Name("map")
+              .Height(500)
+              .ApiKey("AIzaSyDox1GK-S-OLPmrw8-P04O1vRESHIWKVC0")
+          )
+    </div>
+</div>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@section scripts
+{
+    @(Html.GoogleMap().ScriptRegistrar())
+}

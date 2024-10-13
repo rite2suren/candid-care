@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\suren\\community-resources\\community-resources.csproj": {}
+    "c:\\Projects\\suren\\community-resources\\community-resources.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\suren\\community-resources\\community-resources.csproj": {
+    "c:\\Projects\\suren\\community-resources\\community-resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\suren\\community-resources\\community-resources.csproj",
+        "projectUniqueName": "c:\\Projects\\suren\\community-resources\\community-resources.csproj",
         "projectName": "community-resources",
-        "projectPath": "C:\\Projects\\suren\\community-resources\\community-resources.csproj",
+        "projectPath": "c:\\Projects\\suren\\community-resources\\community-resources.csproj",
         "packagesPath": "C:\\Users\\san_y\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\suren\\community-resources\\obj\\",
+        "outputPath": "c:\\Projects\\suren\\community-resources\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\san_y\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Jmelosegui.Mvc.Googlemap": {
+              "target": "Package",
+              "version": "[1.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
