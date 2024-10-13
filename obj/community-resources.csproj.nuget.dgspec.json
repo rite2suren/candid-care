@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\suren\\community-resources\\community-resources.csproj": {}
+    "C:\\Projects\\suren\\community-resources\\community-resources.csproj": {}
   },
   "projects": {
-    "C:\\projects\\suren\\community-resources\\community-resources.csproj": {
+    "C:\\Projects\\suren\\community-resources\\community-resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\suren\\community-resources\\community-resources.csproj",
+        "projectUniqueName": "C:\\Projects\\suren\\community-resources\\community-resources.csproj",
         "projectName": "community-resources",
-        "projectPath": "C:\\projects\\suren\\community-resources\\community-resources.csproj",
+        "projectPath": "C:\\Projects\\suren\\community-resources\\community-resources.csproj",
         "packagesPath": "C:\\Users\\san_y\\.nuget\\packages\\",
-        "outputPath": "C:\\projects\\suren\\community-resources\\obj\\",
+        "outputPath": "C:\\Projects\\suren\\community-resources\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\san_y\\AppData\\Roaming\\NuGet\\NuGet.Config",
