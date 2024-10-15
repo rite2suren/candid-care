@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "XqSlbiR0dhCdE8BdhARj5Gq7mLXjJRnZt+c9A63wAE8Kcj+22CDer6mjklImYWdU9NWB9xiMUZgNLXBzp0lxDw==",
+  "dgSpecHash": "yuadVQFIAsf686tOMVzpIPU/a2f0LqLN/8+JCu42lelGmaIj2uC4D06895PDv4Bp8dWrLYbEoN8LcTT6HRY7Rg==",
   "success": true,
-  "projectFilePath": "c:\\Projects\\suren\\community-resources\\community-resources.csproj",
+  "projectFilePath": "C:\\Sanjay\\suren\\community-resources\\community-resources.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\san_y\\.nuget\\packages\\jmelosegui.mvc.googlemap\\1.0.13\\jmelosegui.mvc.googlemap.1.0.13.nupkg.sha512",
-    "C:\\Users\\san_y\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\san_y\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\san_y\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.18\\microsoft.netcore.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\san_y\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.18\\microsoft.windowsdesktop.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\san_y\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.18\\microsoft.aspnetcore.app.ref.7.0.18.nupkg.sha512",
+    "C:\\Users\\san_y\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.18\\microsoft.netcore.app.host.win-x64.7.0.18.nupkg.sha512"
   ],
   "logs": []
 }

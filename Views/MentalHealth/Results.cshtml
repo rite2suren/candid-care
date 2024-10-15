@@ -1,3 +1,4 @@
+@using Jmelosegui.Mvc.GoogleMap
 @model List<community_resources.Models.MentalHealthService>
 @{
     ViewData["Title"] = "Community Resources - Search Results";
@@ -29,8 +30,34 @@
             }
         </tbody>
     </table>
+
+    <div class="text-center">                
+        <div class="row">
+        <div class="col-md-12">
+            @(Html.GoogleMap()            
+                .Name("map")    
+                .FitToMarkersBounds(true)            
+                .Markers(m =>
+                    {
+                        foreach (var service in Model)
+                        {
+                            m.Add().Latitude(Double.Parse(service.Latitude)).Longitude(Double.Parse(service.Longitude)).Title(service.Name1);                             
+                        }                        
+                    })                
+                .Height(500)                
+                .ApiKey(Environment.GetEnvironmentVariable("google-maps-api-key"))
+            )
+        </div>
+        </div>
+    </div>        
 }
 else
 {
     <p>No services found.</p>
+}
+
+@section scripts
+{
+    @(Html.GoogleMap().ScriptRegistrar())
+    
 }

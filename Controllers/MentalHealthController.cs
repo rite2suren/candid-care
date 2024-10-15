@@ -45,24 +45,24 @@ public class MentalHealthController : Controller
             }
             else
             {
-                foreach (var service in services.Rows)
-                {
-                    if (service.Latitude != null && service.Longitude != null)
-                    {
-                        //await SendToGoogleApi(service.Latitude.ToString(), service.Longitude.ToString());
-                        var locations = services.Rows
-                .Where(service => service.Latitude != null && service.Longitude != null)
-                .Select(service => new { Latitude = service.Latitude, Longitude = service.Longitude })
-                .ToList();
+                //     foreach (var service in services.Rows)
+                //     {
+                //         if (service.Latitude != null && service.Longitude != null)
+                //         {
+                //             //await SendToGoogleApi(service.Latitude.ToString(), service.Longitude.ToString());
+                //             var locations = services.Rows
+                //     .Where(service => service.Latitude != null && service.Longitude != null)
+                //     .Select(service => new { Latitude = service.Latitude, Longitude = service.Longitude })
+                //     .ToList();
 
-            // Pass the locations to the view via ViewBag
-            ViewBag.Locations = locations;
-            
-
+                // // Pass the locations to the view via ViewBag
+                // ViewBag.Locations = locations;
 
 
-                    }
-                }
+
+
+                //         }
+                //     }
                 return View("Results", services.Rows);
             }
         }
@@ -72,7 +72,7 @@ public class MentalHealthController : Controller
             return View("Index");
         }
     }
-    
+
     public async Task SendToGoogleApi(string latitude, string longitude)
     {
         string googleApiUrl = $"https://maps.googleapis.com/maps/api/geocode/json?latlng={latitude},{longitude}&key=AIzaSyB9h8rQ2nQoTUTQw_02fnfo0WB_PtwD2B8";

@@ -7,7 +7,7 @@
     double centerLat = ViewBag.CenterLat != null ? (double)ViewBag.CenterLat : 33.876118; // Default latitude
     double centerLng = ViewBag.CenterLng != null ? (double)ViewBag.CenterLng : -117.921410; // Default longitude
 
-    var locations = (List<dynamic>)ViewBag.Locations;
+    //var locations = (List<dynamic>)ViewBag.Locations;
 
 }
 
@@ -21,33 +21,10 @@
               .ApiKey(Environment.GetEnvironmentVariable("google-maps-api-key"))
           )
     </div>
-</div>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>. key @Environment.GetEnvironmentVariable("google-maps-api-key")</p>
-</div>
 
-<script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: @centerLat, lng: @centerLng  }            
-        });
 
-        var locations = @Html.Raw(JsonSerializer.Serialize(ViewBag.Locations)); // Serialize ViewBag.Locations to JSON
-
-        locations.forEach(function(location) {
-            new google.maps.Marker({
-                position: { lat: location.Latitude, lng: location.Longitude },
-                map: map
-            });
-        });
-    }
-</script>
-
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9h8rQ2nQoTUTQw_02fnfo0WB_PtwD2B8&callback=initMap">
-</script>
-@* 
 @section scripts
 {
     @(Html.GoogleMap().ScriptRegistrar())
     
-} *@
+}
