@@ -10,20 +10,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" asp-append-version="true"> 
     <style>
         .jumbotron {
-            background-color: #f4511e; /* Orange */
+            background-color: #FF7F50; /* Orange */
             color: #ffffff;
         }
-        /* Remove the navbar's default rounded borders and increase the bottom margin */ 
-        .navbar {
-        margin-bottom: 50px;
-        border-radius: 0;
-        }
-        
-        /* Remove the jumbotron's default bottom margin */ 
-        .jumbotron {
-        margin-bottom: 0;
-        }
-    
+
         /* Add a gray background color and some padding to the footer */
         footer {
         background-color: #f2f2f2;
@@ -33,6 +23,23 @@
 </head>
 <body>
     <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="MentalHealth" asp-action="Index">
+                        <img src="~/images/candidcare-logo-small-70.png" class="img-rounded" alt="CandidCare"/>                
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">                
+                <li><a class="nav-link text-dark" asp-area="" asp-controller="MentalHealth" asp-action="Index">Mental Health</a></li>
+                <li><a class="nav-link text-dark" href="https://sites.google.com/view/suitup2uorg/home" target="_blank">Sexual Health</a></li>
+                <li><a class="nav-link text-dark" href="https://988lifeline.org/" target="_blank">988 Suicide & Crisis Lifeline</a></li>
+                <li><a class="nav-link text-dark" href="https://www.samhsa.gov/find-help/national-helpline" target="_blank">National Hotline</a></li>
+                </ul>                
+            </div>
+        </nav>
+    </header>
+    @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="MentalHealth" asp-action="Index">Community Resources</a>
@@ -58,7 +65,7 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> *@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -67,7 +74,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year - Community Resources - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - CandidCare
         </div>
     </footer>
     @* <script src="~/lib/jquery/dist/jquery.min.js"></script>

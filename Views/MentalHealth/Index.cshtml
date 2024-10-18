@@ -1,29 +1,32 @@
 @model string
 @{
-    ViewData["Title"] = "Community Resources - Search";
+    ViewData["Title"] = "Candid Care - Search";
 }
-<h4>Search for Mental Health Services</h4>
 
-<form asp-action="Search" method="post">
-    <div>
-        <label for="location">Enter City or Zip Code:</label>
-        <input type="text" name="location" id="location" required />
+<div class="jumbotron text-center">
+  <h1>Search Mental Health Locations</h1>  
+  <form class="form-inline" asp-action="Search" method="post">
+    <div class="input-group">              
+      <input type="text" class="form-control" name="location" id="location" placeholder="Address, City, State, Zip" required/>        
+      <div class="input-group-btn">        
+        <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+        </button>
+      </div>
     </div>
-    <div>
-        <input type="submit" value="Search" />
-    </div>
-</form>
+  </form>
+</div>
 
 @if (ViewBag.Error != null)
 {
-    <div style="color: red">
+    <div class="btn btn-danger">
         <p>@ViewBag.Error</p>
     </div>
 }
 
 @if (ViewBag.Message != null)
 {
-    <div style="color: green">
+    <div class="btn btn-green">
         <p>@ViewBag.Message</p>
     </div>
 }
