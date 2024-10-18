@@ -21,15 +21,10 @@ public class MentalHealthController : Controller
     [HttpPost]
     public async Task<ActionResult> Search(string location)
     {
+        var geoCode = await GetGeoCode(location);
+
         // API URL with the obtained coordinates
-        string apiUrl = $"https://findtreatment.gov/locator/exportsAsJson/v2?sCodes=OTP,BU,NU,DM&sAddr=33.876118,-117.921410&limitType=2&limitValue=80467.2&pageSize=5&page=1&sort=0";
-
-        //https://findtreatment.gov/locator/exportsAsJson/v2?sCodes=OTP,BU,NU,DM&sAddr=33.876118,-117.921410&limitType=2&limitValue=80467.2&pageSize=100&page=1&sort=0
-        //https://findtreatment.gov/locator/exportsAsJson/v2?limitType=0&limitValue=23
-
-        //https://findtreatment.gov/locator/exportsAsJson/v2?sAddr=%2239.141375,-77.203552%22&limitType=0&limitValue=23
-
-        // apiUrl = $"https://findtreatment.gov/locator/exportsAsJson/v2?sAddr={System.Net.WebUtility.UrlEncode(zipCode)}&limitType=0&limitValue=23";
+        string apiUrl = $"https://findtreatment.gov/locator/exportsAsJson/v2?sCodes=OTP,BU,NU,DM&sAddr={geoCode.Latitude},{geoCode.Longitude}&limitType=2&limitValue=80467.2&pageSize=5&page=1&sort=0";        
 
         using HttpClient client = new HttpClient();
 
@@ -45,24 +40,6 @@ public class MentalHealthController : Controller
             }
             else
             {
-                //     foreach (var service in services.Rows)
-                //     {
-                //         if (service.Latitude != null && service.Longitude != null)
-                //         {
-                //             //await SendToGoogleApi(service.Latitude.ToString(), service.Longitude.ToString());
-                //             var locations = services.Rows
-                //     .Where(service => service.Latitude != null && service.Longitude != null)
-                //     .Select(service => new { Latitude = service.Latitude, Longitude = service.Longitude })
-                //     .ToList();
-
-                // // Pass the locations to the view via ViewBag
-                // ViewBag.Locations = locations;
-
-
-
-
-                //         }
-                //     }
                 return View("Results", services.Rows);
             }
         }
@@ -73,22 +50,37 @@ public class MentalHealthController : Controller
         }
     }
 
-    public async Task SendToGoogleApi(string latitude, string longitude)
-    {
-        string googleApiUrl = $"https://maps.googleapis.com/maps/api/geocode/json?latlng={latitude},{longitude}&key=AIzaSyB9h8rQ2nQoTUTQw_02fnfo0WB_PtwD2B8";
+    private async Task<GeoCode> GetGeoCode(string location){
+        
+        using HttpClient client = new HttpClient();
+        string apiKey = Environment.GetEnvironmentVariable("google-maps-api-key");
+        string address = location;
+        string requestUrl = $"https://maps.googleapis.com/maps/api/geocode/json?address={Uri.EscapeDataString(address)}&key={apiKey}";
 
+        GeoCode geoCode = new GeoCode();
         try
         {
-            var response = await client.GetStringAsync(googleApiUrl);
-            var jsonResponse = JObject.Parse(response);
-            // Process the response as needed
-            // Example: log or store results
+            HttpResponseMessage response = await client.GetAsync(requestUrl);
+            response.EnsureSuccessStatusCode();
+
+            string jsonResponse = await response.Content.ReadAsStringAsync();
+            JObject parsedResponse = JObject.Parse(jsonResponse);
+
+             var results = parsedResponse["results"];
+            if (results.HasValues)
+            {
+                string formattedAddress = (string)results[0]["formatted_address"];
+                var result = results[0]["geometry"]["location"];
+                double lat = (double)result["lat"];
+                double lng = (double)result["lng"];
+                geoCode.Latitude = lat.ToString();
+                geoCode.Longitude = lng.ToString();
+            }
         }
         catch (Exception ex)
         {
-            // Log or handle the error as necessary
+            
         }
+        return geoCode;
     }
-
-
 }

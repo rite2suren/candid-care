@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yuadVQFIAsf686tOMVzpIPU/a2f0LqLN/8+JCu42lelGmaIj2uC4D06895PDv4Bp8dWrLYbEoN8LcTT6HRY7Rg==",
+  "dgSpecHash": "6hEhTC6QwH+EHyyN4lig4qbA6ajmw12JiuSXC6hqRbq1Dmf6eZ+5aXar8hGZgLKrZV7NttL/d5rlogv2QD/1TQ==",
   "success": true,
-  "projectFilePath": "C:\\Sanjay\\suren\\community-resources\\community-resources.csproj",
+  "projectFilePath": "c:\\Sanjay\\suren\\community-resources\\community-resources.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\san_y\\.nuget\\packages\\jmelosegui.mvc.googlemap\\1.0.13\\jmelosegui.mvc.googlemap.1.0.13.nupkg.sha512",
     "C:\\Users\\san_y\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
