@@ -3,30 +3,57 @@
 @{
     ViewData["Title"] = "Community Resources - Search Results";
 }
-@* <h4>Search Results</h4> *@
 
 @if (Model.Count > 0)
 {
     <div class="table-responsive">         
         <table class="table table-condensed jumbotron">
             <thead>
-                <tr>
+                <tr>                    
                     <th>Name</th>
                     <th>Address</th>
                     <th>Phone</th>
                     <th>Website</th>
                     <th>Location</th>
+                    <th>Info</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var service in Model)
                 {
-                    <tr>
+                    <tr>                        
                         <td>@service.Name1</td>
                         <td>@service.Street1, @service.City, @service.State @service.Zip</td>
                         <td>@service.Phone</td>
                         <td><a href="@service.Website" target="_blank">@service.Website</a></td>
                         <td>Lat: @service.Latitude, Long: @service.Longitude</td>
+                        <td>
+                            @if (service.Services != null)
+                            {
+                                <button type="button" class="btn btn-primary float-end" data-toggle="modal" data-target="#serviceModal-@service._irow">
+                                    <i class="glyphicon glyphicon-info-sign"></i>
+                                </button>
+
+                                <div class="modal fade" id="serviceModal-@service._irow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <p>@service.Name1</p>                                                
+                                            </div>
+                                            <div class="modal-body">                                                    
+                                            @foreach (var types in service.Services)
+                                            {
+                                                <p>@string.Format(types.F1 + ":" + types.F2 + ":" + types.F3)</p>                                                                                                    
+                                            }
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>
